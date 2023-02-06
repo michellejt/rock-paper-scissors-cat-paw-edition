@@ -48,7 +48,7 @@ body {
         margin: 0;
     }
 
-/*posts*/
+/*content*/
 
 #main > .post {
 padding: 8rem 8rem 6rem 8rem ;
@@ -81,7 +81,7 @@ padding: 8rem 8rem 6rem 8rem ;
 
 }
 
-#main > .posts {
+#main > .content {
 display: -moz-flex;
 display: -webkit-flex;
 display: -ms-flex;
@@ -99,7 +99,7 @@ width: 100%;
 padding: 0;
 }
 
-#main > .posts > * {
+#main > .content > * {
     -moz-flex-shrink: 1;
     -webkit-flex-shrink: 1;
     -ms-flex-shrink: 1;
@@ -110,16 +110,16 @@ padding: 0;
     flex-grow: 0;
 }
 
-#main > .posts > * {
+#main > .content > * {
     width: 50%;
 }
 
-#main > .posts > * {
+#main > .content > * {
     padding: 4rem;
     width: 50%;
 }
 
-#main > .posts > article {
+#main > .content > article {
     text-align: center;
 }
 
@@ -127,11 +127,11 @@ padding: 0;
 
 @media screen and (max-width: 980px) {
 
-    #main > .posts > * {
+    #main > .content > * {
         width: 50%;
     }
 
-    #main > .posts > * {
+    #main > .content > * {
         padding: 2.5rem;
         width: 50%;
     }
@@ -140,11 +140,11 @@ padding: 0;
 
 @media screen and (max-width: 736px) {
 
-    #main > .posts > * {
+    #main > .content > * {
         width: 100%;
     }
 
-    #main > .posts > * {
+    #main > .content > * {
         padding: 2rem;
         width: 100%;
     }

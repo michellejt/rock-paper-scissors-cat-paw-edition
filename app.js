@@ -1,53 +1,57 @@
 const choose = document.querySelector('#choice-button')
 const userChoiceDisplayImage = document.querySelector('#user-choice-image')
 const userChoiceDisplay = document.querySelector('#user-choice') 
-const userChoice = [
+const choices = [
     ["rock", "rock.png"],
     ["paper", "paper.png"],
     ["scissors", "scissors.png"] 
 ] 
 const playComputerChoice = document.getElementById('computer-choice')
 const computerChoiceDisplay = document.getElementById('computer-choice-display')
+const computerChoiceDisplayImage = document.getElementById('computer-choice-display')
 const resultDisplay = document.getElementById('result')
 let userChoiceSelected 
 let result
 let i = 0;
 
 choose.addEventListener('click', e => {
-
-  if ( i < userChoice.length - 1) { i++; } else { i = 0;} 
-    var userChoiceImage = "<img src='images/" + userChoice[i][1] + "'>";
-    userChoiceSelected = userChoice[i][0]; 
+  if ( i < choices.length - 1) { i++; } else { i = 0;} 
+    userChoiceSelected = choices[i][0]; 
+    userChoiceSelectedImage = choices[i][1] 
+    var userChoiceImage = "<img src='images/" + userChoiceSelectedImage + "'>";
     console.log(userChoiceSelected);
-    //console.log(userChoiceImage, e)
     userChoiceDisplayImage.innerHTML =  userChoiceImage
     userChoiceDisplay.innerHTML = userChoiceSelected;
 }) 
 
   playComputerChoice.addEventListener('click', (e) => {
-    // userChoice = e.target.id
-    // userChoiceDisplay.innerHTML = userChoice
      generateComputerChoice()
      getResult()
    })
+
    
    function generateComputerChoice() {
     const randomNumber = Math.floor(Math.random() * 3) + 1
-    
+    var repImage = '<img src="images/'; 
     if (randomNumber === 1) {
       computerChoice = 'rock'
+      repImage += 'rock.png">'; 
     }
     if (randomNumber === 2) {
       computerChoice = 'scissors'
+      repImage += 'scissors.png">'; 
     }
     if (randomNumber === 3) {
       computerChoice = 'paper'
+      repImage += 'paper.png">'; 
     }
-    console.log("computer choice" + computerChoice)
+    console.log("computer choice is" + computerChoice)
     computerChoiceDisplay.innerHTML = computerChoice
+    computerChoiceDisplayImage.innerHTML = repImage;
   }
   
   function getResult() {
+
     if (computerChoice === userChoiceSelected) {
       result = 'its a draw!'
     }
@@ -70,4 +74,5 @@ choose.addEventListener('click', e => {
       result = 'you lose!'
     }
     resultDisplay.innerHTML = result
+    
   }

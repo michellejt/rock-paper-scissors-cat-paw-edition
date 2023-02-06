@@ -52,3 +52,25 @@ function getResult() {
   }
   resultDisplay.innerHTML = result
 }
+
+
+choose.addEventListener('click', e => { 
+    /* Create a variable that will hold  the text and when inserted into HTML document it will be rendered as an HTML img element */
+   var repImage = '<img src="'; 
+   const randomNumber = Math.floor(Math.random() * 3) +1
+   console.log(randomNumber)
+   if (randomNumber === 1){
+       userChoice ="rock"
+       repImage += 'rock.png">'; 
+   }
+   if (randomNumber === 2){
+       userChoice ="scissors"
+       repImage += 'scissors.png">'; 
+   }
+   if (randomNumber === 3){
+       userChoice ="paper"
+       repImage += 'paper.png">'; 
+   }
+   userChoiceDisplayImage.innerHTML = repImage;
+   userChoiceDisplay.innerHTML = userChoice;
+})
