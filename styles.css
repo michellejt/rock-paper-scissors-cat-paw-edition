@@ -16,6 +16,10 @@ body {
     line-height: 2.375;
 }
 
+#user-choice-image img,
+#computer-choice-image img  {
+    width:250px;
+}
 
 
 

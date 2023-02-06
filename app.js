@@ -6,9 +6,9 @@ const choices = [
     ["paper", "paper.png"],
     ["scissors", "scissors.png"] 
 ] 
-const playComputerChoice = document.getElementById('computer-choice')
-const computerChoiceDisplay = document.getElementById('computer-choice-display')
-const computerChoiceDisplayImage = document.getElementById('computer-choice-display')
+const playComputerChoice = document.getElementById('play')
+const computerChoiceDisplay = document.getElementById('computer-choice')
+const computerChoiceDisplayImage = document.getElementById('computer-choice-image')
 const resultDisplay = document.getElementById('result')
 let userChoiceSelected 
 let result
@@ -19,9 +19,9 @@ choose.addEventListener('click', e => {
     userChoiceSelected = choices[i][0]; 
     userChoiceSelectedImage = choices[i][1] 
     var userChoiceImage = "<img src='images/" + userChoiceSelectedImage + "'>";
-    console.log(userChoiceSelected);
+    console.log('you chose ' + userChoiceSelected);
+    userChoiceDisplay.innerHTML = "You choose " + userChoiceSelected;
     userChoiceDisplayImage.innerHTML =  userChoiceImage
-    userChoiceDisplay.innerHTML = userChoiceSelected;
 }) 
 
   playComputerChoice.addEventListener('click', (e) => {
@@ -45,13 +45,12 @@ choose.addEventListener('click', e => {
       computerChoice = 'paper'
       repImage += 'paper.png">'; 
     }
-    console.log("computer choice is" + computerChoice)
-    computerChoiceDisplay.innerHTML = computerChoice
+    console.log("computer choice is " + computerChoice)
     computerChoiceDisplayImage.innerHTML = repImage;
+    computerChoiceDisplay.innerHTML = "Computer chose " + computerChoice
   }
   
   function getResult() {
-
     if (computerChoice === userChoiceSelected) {
       result = 'its a draw!'
     }
@@ -73,6 +72,8 @@ choose.addEventListener('click', e => {
     if (computerChoice === 'scissors' && userChoiceSelected === "paper") {
       result = 'you lose!'
     }
+    if (computerChoice === 'scissors' && userChoiceSelected === "paper") {
+        result = 'you lose!'
+      }
     resultDisplay.innerHTML = result
-    
   }
