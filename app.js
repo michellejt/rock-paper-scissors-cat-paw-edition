@@ -48,7 +48,6 @@ choose.addEventListener('click', e => {
   }
   
   function getResult() {
-    console.log('get result ' + userChoiceSelected)
     if (computerChoice === userChoiceSelected) {
       result = 'its a draw!'
     }
