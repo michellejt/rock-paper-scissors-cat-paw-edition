@@ -14,7 +14,22 @@ let userChoiceSelected
 let result
 let i = 0;
 
-choose.addEventListener('click', e => {
+const timeLeft = document.querySelector('#time-left')
+let timerId = null
+let currentTime = 10
+
+const startGame = document.getElementById('start')
+
+/* startGame.addEventListener('click', () => {  
+  setTimeout(() => {
+    generateComputerChoice();
+    getResult();
+   
+  }, "5000")   
+}) 
+ */
+
+choose.addEventListener('click', () => {   
   if ( i < choices.length - 1) { i++; } else { i = 0;} 
     userChoiceSelected = choices[i][0]; 
     userChoiceSelectedImage = choices[i][1] 
@@ -24,11 +39,13 @@ choose.addEventListener('click', e => {
     userChoiceDisplayImage.innerHTML =  userChoiceImage
 }) 
 
-  playComputerChoice.addEventListener('click', (e) => {
+
+
+/*   playComputerChoice.addEventListener('click', (e) => {
      generateComputerChoice()
      getResult()
    })
-
+ */
    
    function generateComputerChoice() {
     const randomNumber = Math.floor(Math.random() * 3) + 1
@@ -75,5 +92,19 @@ choose.addEventListener('click', e => {
     if (computerChoice === 'scissors' && userChoiceSelected === "paper") {
         result = 'you lose!'
       }
-    resultDisplay.innerHTML = result
+    resultDisplay.innerHTML = result   
   }
+ 
+  function countDown() {
+    currentTime--
+    timeLeft.textContent = currentTime
+    if (currentTime == 0) {
+        clearInterval(countDownTimerId)
+        clearInterval(timerId)
+        generateComputerChoice();
+        getResult();
+        console.log('game over')
+    }
+}
+
+let countDownTimerId = setInterval(countDown, 1000)
