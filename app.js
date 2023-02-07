@@ -6,7 +6,6 @@ const choices = [
     ["paper", "paper.png"],
     ["scissors", "scissors.png"] 
 ] 
-const playComputerChoice = document.getElementById('play')
 const computerChoiceDisplay = document.getElementById('computer-choice')
 const computerChoiceDisplayImage = document.getElementById('computer-choice-image')
 const resultDisplay = document.getElementById('result')
@@ -20,26 +19,10 @@ let currentTime = 10
 
 const startGame = document.getElementById('start')
 
-startGame.addEventListener('click', () => {  
-/*   setTimeout(() => {
-    generateComputerChoice();
-    getResult();
-   
-  }, "5000")   */ 
- // addChoose()
+/* startGame.addEventListener('click', () => {  
+    addChoose()
 }) 
-
-
-/* choose.addEventListener('click', () => {   
-  if ( i < choices.length - 1) { i++; } else { i = 0;} 
-    userChoiceSelected = choices[i][0]; 
-    userChoiceSelectedImage = choices[i][1] 
-    var userChoiceImage = "<img src='images/" + userChoiceSelectedImage + "'>";
-    console.log('you chose ' + userChoiceSelected);
-    userChoiceDisplay.innerHTML = "You choose " + userChoiceSelected;
-    userChoiceDisplayImage.innerHTML =  userChoiceImage
-})  */
-
+ */
 function addChoose() {
     if ( i < choices.length - 1) { i++; } else { i = 0;} 
     userChoiceSelected = choices[i][0]; 
@@ -52,13 +35,6 @@ function addChoose() {
 
 choose.addEventListener("click", addChoose, false);
 
-
-/*   playComputerChoice.addEventListener('click', (e) => {
-     generateComputerChoice()
-     getResult()
-   })
- */
-   
    function generateComputerChoice() {
     const randomNumber = Math.floor(Math.random() * 3) + 1
     var repImage = '<img src="images/'; 
@@ -115,6 +91,7 @@ choose.addEventListener("click", addChoose, false);
         clearInterval(timerId)
         generateComputerChoice();
         getResult();
+        choose.remove();
         choose.removeEventListener("click", addChoose, false);
         console.log('game over')
     }
