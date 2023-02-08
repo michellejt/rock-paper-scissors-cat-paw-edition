@@ -17,12 +17,35 @@ const timeLeft = document.querySelector('#time-left')
 let timerId = null
 let currentTime = 10
 
-const startGame = document.getElementById('start')
 
-/* startGame.addEventListener('click', () => {  
-    addChoose()
-}) 
- */
+const startGame = document.getElementById('start')
+const reStartGame = document.getElementById('restart')
+
+reStartGame.addEventListener('click', () => {  
+  pressStart()
+})  
+
+
+start.addEventListener("click", pressStart, false);
+
+function pressStart() {
+  choose.addEventListener("click", addChoose, false);
+  let timeleft = 5;
+  let downloadTimer = setInterval(function timer(){
+  timeLeft.innerHTML = timeleft +   "&nbsp"+"seconds remaining";
+  timeleft -= 1;
+  if(timeleft <= 0){
+      clearInterval(downloadTimer);
+      generateComputerChoice();
+      getResult();
+      choose.removeEventListener("click", addChoose, false);
+      console.log("times up");
+    }
+  }, 1000); 
+};
+
+choose.addEventListener("click", addChoose, false);
+
 function addChoose() {
     if ( i < choices.length - 1) { i++; } else { i = 0;} 
     userChoiceSelected = choices[i][0]; 
@@ -33,7 +56,7 @@ function addChoose() {
     userChoiceDisplayImage.innerHTML =  userChoiceImage
 }
 
-choose.addEventListener("click", addChoose, false);
+
 
    function generateComputerChoice() {
     const randomNumber = Math.floor(Math.random() * 3) + 1
@@ -83,7 +106,7 @@ choose.addEventListener("click", addChoose, false);
     resultDisplay.innerHTML = result   
   }
  
-  function countDown() {
+/*   function countDown() {
     currentTime--
     timeLeft.textContent = currentTime
     if (currentTime == 0) {
@@ -97,4 +120,10 @@ choose.addEventListener("click", addChoose, false);
     }
 }
 
-let countDownTimerId = setInterval(countDown, 1000)
+let countDownTimerId = setInterval(countDown, 1000) */
+
+/* function restart() {
+  choose.addEventListener("click", addChoose, false);
+} */
+
+
