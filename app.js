@@ -9,7 +9,7 @@ const choices = [
 const computerChoiceDisplay = document.getElementById('computer-choice')
 const computerChoiceDisplayImage = document.getElementById('computer-choice-image')
 const resultDisplay = document.getElementById('result')
-let userChoiceSelected 
+let userChoiceSelected
 let result
 let i = 0;
 
@@ -18,24 +18,25 @@ let timerId = null
 let currentTime = 10
 
 
-const startGame = document.getElementById('start')
+//const startGame = document.getElementById('start')
 const reStartGame = document.getElementById('restart')
 
 reStartGame.addEventListener('click', () => {  
   pressStart()
 })  
 
-
-start.addEventListener("click", pressStart, false);
+reStartGame.addEventListener("click", pressStart, false);
 
 function pressStart() {
   choose.addEventListener("click", addChoose, false);
   var timer = 10;
   var newYearCountdown = setInterval(function(){
     timeLeft.innerHTML = timer +   "&nbsp"+"seconds remaining";
-    console.log(timer);
+  //  console.log(timer);
     timer--
+    generateComputerChoice()
     if (timer === 0) {
+      timeLeft.innerHTML = "";
       generateComputerChoice();
       getResult();
       choose.removeEventListener("click", addChoose, false);
@@ -49,14 +50,11 @@ choose.addEventListener("click", addChoose, false);
 function addChoose() {
     if ( i < choices.length - 1) { i++; } else { i = 0;} 
     userChoiceSelected = choices[i][0]; 
-    userChoiceSelectedImage = choices[i][1] 
+    var userChoiceSelectedImage = choices[i][1] 
     var userChoiceImage = "<img src='images/" + userChoiceSelectedImage + "'>";
-    console.log('you chose ' + userChoiceSelected);
     userChoiceDisplay.innerHTML = "You choose " + userChoiceSelected;
     userChoiceDisplayImage.innerHTML =  userChoiceImage
 }
-
-
 
    function generateComputerChoice() {
     const randomNumber = Math.floor(Math.random() * 3) + 1
@@ -105,25 +103,3 @@ function addChoose() {
       }
     resultDisplay.innerHTML = result   
   }
- 
-/*   function countDown() {
-    currentTime--
-    timeLeft.textContent = currentTime
-    if (currentTime == 0) {
-        clearInterval(countDownTimerId)
-        clearInterval(timerId)
-        generateComputerChoice();
-        getResult();
-        choose.remove();
-        choose.removeEventListener("click", addChoose, false);
-        console.log('game over')
-    }
-}
-
-let countDownTimerId = setInterval(countDown, 1000) */
-
-/* function restart() {
-  choose.addEventListener("click", addChoose, false);
-} */
-
-
