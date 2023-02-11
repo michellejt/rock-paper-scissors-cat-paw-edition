@@ -30,18 +30,18 @@ start.addEventListener("click", pressStart, false);
 
 function pressStart() {
   choose.addEventListener("click", addChoose, false);
-  let timeleft = 5;
-  let downloadTimer = setInterval(function timer(){
-  timeLeft.innerHTML = timeleft +   "&nbsp"+"seconds remaining";
-  timeleft -= 1;
-  if(timeleft <= 0){
-      clearInterval(downloadTimer);
+  var timer = 10;
+  var newYearCountdown = setInterval(function(){
+    timeLeft.innerHTML = timer +   "&nbsp"+"seconds remaining";
+    console.log(timer);
+    timer--
+    if (timer === 0) {
       generateComputerChoice();
       getResult();
       choose.removeEventListener("click", addChoose, false);
-      console.log("times up");
+      clearInterval(newYearCountdown);
     }
-  }, 1000); 
+  }, 1000);
 };
 
 choose.addEventListener("click", addChoose, false);
