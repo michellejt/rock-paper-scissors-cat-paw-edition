@@ -22,30 +22,51 @@
       <!-- Main -->
       <div id="main">
         <!--columns-->
+        <section>
+          <h3><span id="time-left"></span></h3>
+        </section>
+
+
         <section class="content">
           <article>
             <header></header>
-            <h3><span id="time-left"></span></h3>
             <button id="choice-button">Choose</button>
-            <div id="user-choice"></div>
             <div id="user-choice-image"></div>
+            <div id="user-choice"></div>
           </article>
           <article>
             <header></header>
-            <div id="computer-choice"></div>
             <div id="computer-choice-image"></div>
-            
+            <div id="computer-choice"></div>            
           </article>
         </section>
         <!-- Section -->
         <section>
           <article>
             <header>
-              <h2>Result: <span id="result"></span>
+              <!--result-->
               </h2>
             </header>
           </article>
         </section>
+
+        <section class="modal hidden">
+          <div class="flex">
+  
+            <button class="btn-close">⨉</button>
+          </div>
+          <div>
+            <h3>RESULT!</h3>
+            <p>
+              <h2>Result: <span id="result"></span>
+            </p>
+          </div>
+          <button class="btn">PLAY AGAIN??</button>
+        </section>
+        
+        <div class="overlay hidden"></div>
+        <!-- <button class="btn btn-open">Open Modal</button> -->
+
 
       <!-- <button id="start">START</button> -->
         <button id="restart">PLAY AGAIN?</button>

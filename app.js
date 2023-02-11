@@ -9,6 +9,13 @@ const choices = [
 const computerChoiceDisplay = document.getElementById('computer-choice')
 const computerChoiceDisplayImage = document.getElementById('computer-choice-image')
 const resultDisplay = document.getElementById('result')
+
+const modal = document.querySelector(".modal");
+const overlay = document.querySelector(".overlay");
+const openModalBtn = document.querySelector(".btn-open");
+const closeModalBtn = document.querySelector(".btn-close");
+
+
 let userChoiceSelected
 let result
 let i = 0;
@@ -21,40 +28,49 @@ let currentTime = 10
 //const startGame = document.getElementById('start')
 const reStartGame = document.getElementById('restart')
 
-reStartGame.addEventListener('click', () => {  
+//this was causing the timer to run twices
+/* reStartGame.addEventListener('click', () => {  
   pressStart()
-})  
+})   */
 
 reStartGame.addEventListener("click", pressStart, false);
 
 function pressStart() {
   choose.addEventListener("click", addChoose, false);
+  
   var timer = 10;
-  var newYearCountdown = setInterval(function(){
-    timeLeft.innerHTML = timer +   "&nbsp"+"seconds remaining";
-  //  console.log(timer);
+  var gameCountdown = setInterval(function(){
+    //console.log(timer);
     timer--
+    timeLeft.innerHTML = timer +   "&nbsp"+"seconds remaining";
     generateComputerChoice()
     if (timer === 0) {
       timeLeft.innerHTML = "";
-      generateComputerChoice();
+      //generateComputerChoice();
       getResult();
-      choose.removeEventListener("click", addChoose, false);
-      clearInterval(newYearCountdown);
+      choose.removeEventListener("click", addChoose, false);     
+      clearInterval(gameCountdown);
     }
   }, 1000);
 };
 
-choose.addEventListener("click", addChoose, false);
-
+//trying to start the game with default option
+//addChoose()
+//generateComputerChoice()
 function addChoose() {
-    if ( i < choices.length - 1) { i++; } else { i = 0;} 
+    if ( i < choices.length - 1) { 
+        i++; 
+    } else 
+      { 
+        i = 0;
+      } 
     userChoiceSelected = choices[i][0]; 
     var userChoiceSelectedImage = choices[i][1] 
-    var userChoiceImage = "<img src='images/" + userChoiceSelectedImage + "'>";
+    userChoiceImage = "<img src='images/" + userChoiceSelectedImage + "'>";
     userChoiceDisplay.innerHTML = "You choose " + userChoiceSelected;
     userChoiceDisplayImage.innerHTML =  userChoiceImage
-}
+    console.log("i chose ", userChoiceSelected)
+  }
 
    function generateComputerChoice() {
     const randomNumber = Math.floor(Math.random() * 3) + 1
@@ -71,9 +87,9 @@ function addChoose() {
       computerChoice = 'paper'
       repImage += 'paper.png">'; 
     }
-    console.log("computer choice is " + computerChoice)
-    computerChoiceDisplayImage.innerHTML = repImage;
+   // console.log("computer choice is " + computerChoice)
     computerChoiceDisplay.innerHTML = "Computer chose " + computerChoice
+    computerChoiceDisplayImage.innerHTML = repImage;
   }
   
   function getResult() {
@@ -101,5 +117,33 @@ function addChoose() {
     if (computerChoice === 'scissors' && userChoiceSelected === "paper") {
         result = 'you lose!'
       }
-    resultDisplay.innerHTML = result   
+      openModal()
   }
+
+
+// close modal function
+const closeModal = function () {
+  modal.classList.add("hidden");
+  overlay.classList.add("hidden");
+};
+
+// close the modal when the close button and overlay is clicked
+closeModalBtn.addEventListener("click", closeModal);
+overlay.addEventListener("click", closeModal);
+
+/* // close modal when the Esc key is pressed
+document.addEventListener("keydown", function (e) {
+  if (e.key === "Escape" && !modal.classList.contains("hidden")) {
+    closeModal();
+  }
+}); */
+
+// open modal function
+const openModal = function () {
+  modal.classList.remove("hidden");
+  overlay.classList.remove("hidden");
+  resultDisplay.innerHTML = result   
+};
+
+
+
