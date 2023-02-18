@@ -24,14 +24,15 @@ const timeLeft = document.querySelector('#time-left')
 let timerId = null
 let currentTime = 10
 
+//load initial item
+window.addEventListener('DOMContentLoaded', function(){
+  addChoose();
+});
+
 
 //const startGame = document.getElementById('start')
 const reStartGame = document.getElementById('restart')
 
-//this was causing the timer to run twices
-/* reStartGame.addEventListener('click', () => {  
-  pressStart()
-})   */
 
 reStartGame.addEventListener("click", pressStart, false);
 
