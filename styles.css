@@ -42,14 +42,14 @@ body {
     min-height: 250px;
     position: absolute;
     z-index: 2;
-    top: 20%;
     background-color: white;
     border: 1px solid #ddd;
     border-radius: 15px;
-    top: 50%;
-    left: 50%;
-    margin-top: -50px;
-    margin-left: -50px;
+    left: 0;
+    right: 0;
+    top: 30%;
+    bottom: 30%;
+    margin: auto;
   }
   
   .modal .flex {
@@ -141,10 +141,10 @@ body {
     z-index: 2;
 }
 
-    #main > * {
+/*     #main > * {
         padding: 4rem 4rem 2rem 4rem ;
         margin: 0;
-    }
+    } */
 
 /*content*/
 
