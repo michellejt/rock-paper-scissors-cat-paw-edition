@@ -15,6 +15,8 @@ const overlay = document.querySelector(".overlay");
 const openModalBtn = document.querySelector(".btn-open");
 const closeModalBtn = document.querySelector(".btn-close");
 
+//const startGame = document.getElementById('start')
+const startGameBtns = document.querySelectorAll('.start')
 
 let userChoiceSelected
 let result
@@ -27,18 +29,21 @@ let currentTime = 10
 //load initial item
 window.addEventListener('DOMContentLoaded', function(){
   addChoose();
+  generateComputerChoice();
 });
 
 
-//const startGame = document.getElementById('start')
-const reStartGame = document.getElementById('restart')
+//startGameBtns.addEventListener("click", pressStart, false);
 
+//add eventlistener to every button that has the class .question-btn
+startGameBtns.forEach(function(startGameBtn){
+  startGameBtn.addEventListener("click", pressStart, false);
+}) 
 
-reStartGame.addEventListener("click", pressStart, false);
 
 function pressStart() {
   choose.addEventListener("click", addChoose, false);
-  
+  closeModal();
   var timer = 10;
   var gameCountdown = setInterval(function(){
     //console.log(timer);
