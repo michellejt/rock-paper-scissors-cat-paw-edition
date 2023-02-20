@@ -97,6 +97,10 @@ body {
   .final-choice {
     text-align: center;
   }
+
+  .final-choices-images img {
+    width: 25px;
+}
   
   button {
     cursor: pointer;

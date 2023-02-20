@@ -10,6 +10,8 @@ const computerChoiceDisplay = document.getElementById('computer-choice')
 const computerChoiceDisplayImage = document.getElementById('computer-choice-image')
 const resultDisplay = document.getElementById('result')
 const finalChoices = document.querySelector('.final-choices')
+//const finalChoicesImages = document.querySelector('.final-choices-images')
+
 
 const modal = document.querySelector(".modal");
 const overlay = document.querySelector(".overlay");
@@ -145,6 +147,6 @@ function openModalStart() {
 function openModalGameOVer() {
   modal.classList.remove("hidden");
   overlay.classList.remove("hidden");
-  finalChoices.innerHTML = "You chose " + userChoiceSelected + " and Computer chose " + computerChoice;
+  finalChoices.innerHTML = "You chose " + userChoiceSelected + " and computer chose " + computerChoice;
   resultDisplay.innerHTML = result;
 }
