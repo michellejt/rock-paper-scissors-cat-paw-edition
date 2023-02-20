@@ -31,6 +31,14 @@ body {
     display: flex;
 }
 
+.timer {
+    display: flex;
+    justify-content: center;
+    padding-top: 25px;
+    min-height: 95px;
+    margin-bottom:-90px;
+}
+
 /* modal */
 .modal {
     display: flex;
@@ -55,7 +63,7 @@ body {
   .modal .flex {
     display: flex;
     align-items: center;
-    justify-content: space-between;
+    justify-content: flex-end;
   }
   
   .modal input {
@@ -69,6 +77,11 @@ body {
     font-size: 0.9rem;
     color: #777;
     margin: 0.4rem 0 0.2rem;
+  }
+
+  .modal-content {
+    display: flex;
+    justify-content: center;
   }
   
   button {
@@ -117,6 +130,40 @@ body {
     display: none;
   }
 
+  /* start button */
+  .start {
+    position: relative;
+    display: inline-block;
+    overflow: hidden;
+    text-decoration: none;
+    font-family: sans-serif;
+    font-weight: 600;
+    font-size: 1.5em;
+    padding: 0.75em 2.5em;
+    border: none;
+    border-radius: calc(0.15em + 0.15em + 0.15em);
+    background: linear-gradient(120deg, rgba(49, 186, 204, 1) 0%, rgba(236, 113, 209, 1) 100%);
+    color: #fff;
+    cursor: pointer;
+}
+.start:after {
+    content: "";
+    position: absolute;
+    top: -50%;
+    right: -50%;
+    bottom: -50%;
+    left: -50%;
+    background: linear-gradient(to bottom, rgba(229, 172, 142, 0), rgba(255, 255, 255, 0.5) 50%, rgba(229, 172, 142, 0));
+    transform: rotateZ(60deg) translate(-5em, 7.5em);
+}
+.start:hover:after, .start:focus:after {
+    animation: sheen 1s forwards;
+}
+@keyframes sheen {
+    100% {
+        transform: rotateZ(60deg) translate(1em, -9em);
+   }
+}
 
 /* Wrapper */
 
@@ -138,6 +185,7 @@ body {
     margin: 0 auto;
     width: calc(100% - 4rem);
     max-width: 72rem;
+    margin-top:50px;
     z-index: 2;
 }
 
@@ -243,14 +291,11 @@ padding: 0;
     }
 
     #main > .content > * {
-        padding: 2rem;
+        padding: 0 5rem;
         width: 100%;
     }
 
 }
-
-
-
 
 section {
 	margin: 0;

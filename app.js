@@ -30,6 +30,7 @@ let currentTime = 10
 window.addEventListener('DOMContentLoaded', function(){
   addChoose();
   generateComputerChoice();
+  openModalStart();
 });
 
 
@@ -60,9 +61,6 @@ function pressStart() {
   }, 1000);
 };
 
-//trying to start the game with default option
-//addChoose()
-//generateComputerChoice()
 function addChoose() {
     if ( i < choices.length - 1) { 
         i++; 
@@ -93,37 +91,37 @@ function addChoose() {
       computerChoice = 'paper'
       repImage += 'paper.png">'; 
     }
-   // console.log("computer choice is " + computerChoice)
+
     computerChoiceDisplay.innerHTML = "Computer chose " + computerChoice
     computerChoiceDisplayImage.innerHTML = repImage;
   }
   
   function getResult() {
     if (computerChoice === userChoiceSelected) {
-      result = 'its a draw!'
+      result = 'Draw!'
     }
     if (computerChoice === 'rock' && userChoiceSelected === "paper") {
-      result = 'you win!'
+      result = 'You won!'
     }
     if (computerChoice === 'rock' && userChoiceSelected === "scissors") {
-      result = 'you lost!'
+      result = 'You lost!'
     }
     if (computerChoice === 'paper' && userChoiceSelected === "scissors") {
-      result = 'you win!'
+      result = 'You won!'
     }
     if (computerChoice === 'paper' && userChoiceSelected === "rock") {
-      result = 'you lose!'
+      result = 'You lost!'
     }
     if (computerChoice === 'scissors' && userChoiceSelected === "rock") {
-      result = 'you win!'
+      result = 'You won!'
     }
     if (computerChoice === 'scissors' && userChoiceSelected === "paper") {
-      result = 'you lose!'
+      result = 'You lose!'
     }
     if (computerChoice === 'scissors' && userChoiceSelected === "paper") {
-        result = 'you lose!'
+        result = 'You lost!'
       }
-      openModal()
+      openModalGameOVer()
   }
 
 
@@ -137,9 +135,13 @@ function closeModal () {
 closeModalBtn.addEventListener("click", closeModal);
 //overlay.addEventListener("click", closeModal);
 
-function openModal() {
+function openModalStart() {
+  modal.classList.remove("hidden");
+  overlay.classList.remove("hidden");
+}
+
+function openModalGameOVer() {
   modal.classList.remove("hidden");
   overlay.classList.remove("hidden");
   resultDisplay.innerHTML = result   
 }
-
