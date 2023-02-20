@@ -13,7 +13,7 @@ const resultDisplay = document.getElementById('result')
 const modal = document.querySelector(".modal");
 const overlay = document.querySelector(".overlay");
 const openModalBtn = document.querySelector(".btn-open");
-const closeModalBtn = document.querySelector(".btn-close");
+//const closeModalBtn = document.querySelector(".btn-close");
 
 //const startGame = document.getElementById('start')
 const startGameBtns = document.querySelectorAll('.start')
@@ -121,6 +121,7 @@ function addChoose() {
     if (computerChoice === 'scissors' && userChoiceSelected === "paper") {
         result = 'You lost!'
       }
+      console.log(computerChoice)
       openModalGameOVer()
   }
 
@@ -132,7 +133,7 @@ function closeModal () {
 };
 
 // close the modal when the close button and overlay is clicked
-closeModalBtn.addEventListener("click", closeModal);
+// closeModalBtn.addEventListener("click", closeModal);
 //overlay.addEventListener("click", closeModal);
 
 function openModalStart() {
