@@ -10,7 +10,7 @@ const computerChoiceDisplayImage = document.getElementById('computer-choice-imag
 const resultDisplay = document.getElementById('result')
 const finalChoices = document.querySelector('.final-choices')
 //const finalChoicesImages = document.querySelector('.final-choices-images')
-
+const rules = document.querySelector('.rules')
 
 const modal = document.querySelector(".modal");
 const overlay = document.querySelector(".overlay");
@@ -75,7 +75,7 @@ function addChoose() {
     userChoiceImage = "<img src='images/" + userChoiceSelectedImage + "'>";
     userChoiceDisplay.innerHTML = "You choose " + userChoiceSelected;
     userChoiceDisplayImage.innerHTML =  userChoiceImage
-    console.log("i chose ", userChoiceSelected)
+    //console.log("i chose ", userChoiceSelected)
   }
 
    function generateComputerChoice() {
@@ -96,6 +96,7 @@ function addChoose() {
 
     computerChoiceDisplay.innerHTML = "Computer chose " + computerChoice
     computerChoiceDisplayImage.innerHTML = repImage;
+    console.log("computer chose", computerChoice)
   }
   
   function getResult() {
@@ -123,7 +124,6 @@ function addChoose() {
     if (computerChoice === 'scissors' && userChoiceSelected === "paper") {
         result = 'You lost!'
       }
-      console.log(computerChoice)
       openModalGameOVer()
   }
 
@@ -141,11 +141,13 @@ function closeModal () {
 function openModalStart() {
   modal.classList.remove("hidden");
   overlay.classList.remove("hidden");
+  rules.innerHTML = "Make your choice before time run out!";
 }
 
 function openModalGameOVer() {
   modal.classList.remove("hidden");
   overlay.classList.remove("hidden");
+  rules.innerHTML = "";
   finalChoices.innerHTML = "You chose " + userChoiceSelected + " and computer chose " + computerChoice;
   resultDisplay.innerHTML = result;
 }
