@@ -1,4 +1,3 @@
-//const choose = document.querySelector('#choice-button')
 const userChoiceDisplayImage = document.querySelector('#user-choice-image')
 const userChoiceDisplay = document.querySelector('#user-choice') 
 const choices = [
