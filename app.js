@@ -1,9 +1,9 @@
 const userChoiceDisplayImage = document.querySelector('#user-choice-image')
 const userChoiceDisplay = document.querySelector('#user-choice') 
 const choices = [
-    ["rock", "rock.png"],
-    ["paper", "paper.png"],
-    ["scissors", "scissors.png"] 
+    ["rock", "rock.webp"],
+    ["paper", "paper.webp"],
+    ["scissors", "scissors.webp"] 
 ] 
 const computerChoiceDisplay = document.getElementById('computer-choice')
 const computerChoiceDisplayImage = document.getElementById('computer-choice-image')
@@ -83,15 +83,15 @@ function addChoose() {
     var repImage = '<img src="images/'; 
     if (randomNumber === 1) {
       computerChoice = 'rock'
-      repImage += 'rock.png">'; 
+      repImage += 'rock.webp">'; 
     }
     if (randomNumber === 2) {
       computerChoice = 'scissors'
-      repImage += 'scissors.png">'; 
+      repImage += 'scissors.webp">'; 
     }
     if (randomNumber === 3) {
       computerChoice = 'paper'
-      repImage += 'paper.png">'; 
+      repImage += 'paper.webp">'; 
     }
 
     computerChoiceDisplay.innerHTML = "Computer chose " + computerChoice
