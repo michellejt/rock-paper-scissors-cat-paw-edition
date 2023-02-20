@@ -1,4 +1,4 @@
-const choose = document.querySelector('#choice-button')
+//const choose = document.querySelector('#choice-button')
 const userChoiceDisplayImage = document.querySelector('#user-choice-image')
 const userChoiceDisplay = document.querySelector('#user-choice') 
 const choices = [
@@ -9,6 +9,7 @@ const choices = [
 const computerChoiceDisplay = document.getElementById('computer-choice')
 const computerChoiceDisplayImage = document.getElementById('computer-choice-image')
 const resultDisplay = document.getElementById('result')
+const finalChoices = document.querySelector('.final-choices')
 
 const modal = document.querySelector(".modal");
 const overlay = document.querySelector(".overlay");
@@ -43,7 +44,7 @@ startGameBtns.forEach(function(startGameBtn){
 
 
 function pressStart() {
-  choose.addEventListener("click", addChoose, false);
+  userChoiceDisplayImage.addEventListener("click", addChoose, false);
   closeModal();
   var timer = 10;
   var gameCountdown = setInterval(function(){
@@ -55,7 +56,7 @@ function pressStart() {
       timeLeft.innerHTML = "";
       //generateComputerChoice();
       getResult();
-      choose.removeEventListener("click", addChoose, false);     
+      userChoiceDisplayImage.removeEventListener("click", addChoose, false);     
       clearInterval(gameCountdown);
     }
   }, 1000);
@@ -144,5 +145,6 @@ function openModalStart() {
 function openModalGameOVer() {
   modal.classList.remove("hidden");
   overlay.classList.remove("hidden");
-  resultDisplay.innerHTML = result   
+  finalChoices.innerHTML = "You chose " + userChoiceSelected + " and Computer chose " + computerChoice;
+  resultDisplay.innerHTML = result;
 }

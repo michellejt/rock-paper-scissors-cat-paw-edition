@@ -25,11 +25,15 @@ body {
     width:250px;
 }
 
-#choice-button {
+#user-choice-image:hover {
+    cursor:pointer;
+}
+
+/* #choice-button {
     position: absolute;
     justify-content: center;
     display: flex;
-}
+} */
 
 .timer {
     display: flex;
@@ -37,6 +41,12 @@ body {
     padding-top: 25px;
     min-height: 95px;
     margin-bottom:-90px;
+}
+
+.title-text {
+    padding: 0;
+    margin: 20px 0 -5px 0;
+    text-align: center;
 }
 
 /* modal */
@@ -77,11 +87,15 @@ body {
     font-size: 0.9rem;
     color: #777;
     margin: 0.4rem 0 0.2rem;
+    text-align: center;
   }
 
   .modal-content {
-    display: flex;
-    justify-content: center;
+    text-align: center;
+  }
+
+  .final-choice {
+    text-align: center;
   }
   
   button {
